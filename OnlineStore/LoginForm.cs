@@ -16,6 +16,8 @@ namespace OnlineStore
         {
             InitializeComponent();
             InternetConnection();
+            SecurePassword sc = new SecurePassword();
+            sc.TestRun();
         }
 
         private void InternetConnection()
@@ -28,6 +30,10 @@ namespace OnlineStore
                 MessageBox.Show("Internet conncetion : OFFLINE!");
         }
 
+        private void btn_SignIn_Click(object sender, EventArgs e)
+        {
+            DataBaseOperations db_operation = DataBaseOperations.getSample();
 
+        }
     }
 }
