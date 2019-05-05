@@ -29,9 +29,36 @@ namespace OnlineStore
 
         static private string GetConnectionString()
         {
-            return "SERVER = localhost; DATABASE=" + sql_database + ";USER=" + sql_login + ";PASSWORD=" + sql_password;
+            return "SERVER ="+ sql_server + "; DATABASE=" + sql_database + ";USER=" + sql_login + ";PASSWORD=" + sql_password;
         }
 
+        public bool InsertUser(string customer_address,string customer_email,string customer_login,string customer_name,string customer_password, bool customer_gender)
+        {
+            string connectionString = GetConnectionString();
+            try
+            {
+                using (sql_connection = new MySqlConnection(connectionString))
+                {
+                    sql_connection.Open();
+                    using (sql_command = new MySqlCommand("INSERT INTO customer(customer_name,customer_adress,customer_email,customer_username,customer_password,customer_gender) VALUES(@Name, @Address, @Email, @Username, @Password, @Gender)", sql_connection))
+                    {
+                        sql_command.Parameters.AddWithValue("Name", customer_name);
+                        sql_command.Parameters.AddWithValue("Address", customer_address);
+                        sql_command.Parameters.AddWithValue("Email", customer_email);
+                        sql_command.Parameters.AddWithValue("Username", customer_login);
+                        sql_command.Parameters.AddWithValue("Password", customer_password);
+                        sql_command.Parameters.AddWithValue("Gender", customer_gender);
+                    }
+                    sql_command.ExecuteNonQuery();
+                }    
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            db_oper.sql_connection.Close();
+            return true;
+        }
 
         public CustomerInfo SelectUser(string customer_username, string customer_password)
         {
@@ -83,8 +110,9 @@ namespace OnlineStore
             {
                 MessageBox.Show("Connection failed!!! \n" + ex.Message, "FAIL", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-    db_oper.sql_connection.Close();
+            db_oper.sql_connection.Close();
             return customer;
         }
+
     }
 }
