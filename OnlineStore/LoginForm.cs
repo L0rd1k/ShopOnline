@@ -49,12 +49,17 @@ namespace OnlineStore
             else
             {
                 DataBaseOperations db_operation = DataBaseOperations.getSample();
-                //CustomerInfo customerLogined = CustomerInfo.getSample();
                 CustomerInfo customerInfo = db_operation.SelectUser(txtBox_Login.Text, txtBox_Password.Text);
                 if (customerInfo != null)
                 {
+                    this.Hide();
                     MessageBox.Show("You have entered!!!");
                     MessageBox.Show("" + customerInfo.Customeraddress);
+                    MainAppForm mainForm = new MainAppForm();
+                    mainForm.ShowDialog();
+                    mainForm = null;
+                    txtBox_Login.Clear();
+                    txtBox_Password.Clear();
                 }
             }
         }
@@ -62,12 +67,14 @@ namespace OnlineStore
         {
             panel1.Visible = false;
             panel2.Visible = true;
+
             panel2.BringToFront();
         }
         private void linkLabel_SignIn_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             panel1.Visible = true;
             panel2.Visible = false;
+
             panel1.BringToFront();
         }
         private void pB_ShowPW_MouseDown(object sender, MouseEventArgs e)
@@ -78,6 +85,7 @@ namespace OnlineStore
         {
             txtBox_Password.PasswordChar = 'X';
         }
+
         private void txtBox_Login_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (char.IsWhiteSpace(e.KeyChar) || System.Text.Encoding.UTF8.GetByteCount(new char[] { e.KeyChar }) > 1)
@@ -212,6 +220,16 @@ namespace OnlineStore
             {
                 e.Handled = true;
             }
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
         }
     }
 }

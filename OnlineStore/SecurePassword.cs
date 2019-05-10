@@ -66,8 +66,6 @@ namespace OnlineStore
                     currResult = false;
             return currResult;
         }
-
-
         public bool TestVerify(string password, byte[] db_password)
         {
             byte[] test = new Rfc2898DeriveBytes(password, _salt, hash_Iter).GetBytes(hash_Size);
@@ -76,7 +74,6 @@ namespace OnlineStore
                     return false;
             return true;
         }
-
         public void TestRun()
         {
             SecurePassword hash = new SecurePassword("MyTestPassowrd");
