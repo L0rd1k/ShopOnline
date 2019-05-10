@@ -19,6 +19,9 @@ namespace OnlineStore
         }
         private void LoginForm_Load(object sender, EventArgs e)
         {
+            panel1.Visible = true;
+            panel2.Visible = false;
+            panel1.BringToFront();
             txtBox_Password.PasswordChar = 'X';
             tB_SignUp_Password.PasswordChar = 'X';
             tB_SignUp_RePW.PasswordChar = 'X';
@@ -57,9 +60,15 @@ namespace OnlineStore
         }
         private void linkLabel_SignUp_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
+            panel1.Visible = false;
+            panel2.Visible = true;
+            panel2.BringToFront();
         }
         private void linkLabel_SignIn_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
+            panel1.Visible = true;
+            panel2.Visible = false;
+            panel1.BringToFront();
         }
         private void pB_ShowPW_MouseDown(object sender, MouseEventArgs e)
         {
@@ -71,7 +80,7 @@ namespace OnlineStore
         }
         private void txtBox_Login_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar) || System.Text.Encoding.UTF8.GetByteCount(new char[] { e.KeyChar }) > 1)
+            if (char.IsWhiteSpace(e.KeyChar) || System.Text.Encoding.UTF8.GetByteCount(new char[] { e.KeyChar }) > 1)
             {
                 e.Handled = true;
             }

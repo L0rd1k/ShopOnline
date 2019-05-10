@@ -2,6 +2,7 @@
 using System.Data.SqlClient;
 using MySql.Data.MySqlClient;
 using System.Windows.Forms;
+using System.Security.Cryptography;
 
 namespace OnlineStore
 {
@@ -35,6 +36,9 @@ namespace OnlineStore
         public bool InsertUser(string customer_address,string customer_email,string customer_login,string customer_name,string customer_password, bool customer_gender)
         {
             string connectionString = GetConnectionString();
+            SecurePassword sc_pw = new SecurePassword(customer_password);
+            byte[] bytePW = sc_pw.ToArray();
+            string passwordBytes = Convert.ToBase64String(bytePW);
             try
             {
                 using (sql_connection = new MySqlConnection(connectionString))
@@ -46,7 +50,7 @@ namespace OnlineStore
                         sql_command.Parameters.AddWithValue("Address", customer_address);
                         sql_command.Parameters.AddWithValue("Email", customer_email);
                         sql_command.Parameters.AddWithValue("Username", customer_login);
-                        sql_command.Parameters.AddWithValue("Password", customer_password);
+                        sql_command.Parameters.AddWithValue("Password", passwordBytes);
                         sql_command.Parameters.AddWithValue("Gender", customer_gender);
                     }
                     sql_command.ExecuteNonQuery();
@@ -78,10 +82,46 @@ namespace OnlineStore
 					{
                         while (reader.Read())
                         {
-                            if (customer_password.ToString() != (string)reader["customer_password"])
+                            bool securingResult = false;
+                            SecurePassword pw = new SecurePassword();
+                            securingResult = pw.Verifing((string)reader["customer_password"], customer_password.ToString());
+
+                            //byte[] db_hashBytes = Convert.FromBase64String((string)reader["customer_password"]);
+                            //byte[] salt = new byte[16];
+                            //Array.Copy(db_hashBytes, 0, salt, 0, 16);
+
+                            //var user_hashBytes = new Rfc2898DeriveBytes(customer_password.ToString(),salt,10000);
+                            //byte[] hash = user_hashBytes.GetBytes(20);
+                            //string passwordBytes = Convert.ToBase64String(hash);
+
+                            //bool ok = true;
+                            //for(int i=0;i < 20; i++)
+                            //{
+                            //    if (db_hashBytes[i + 16] != hash[i])
+                            //        ok = false;
+                            //}
+
+                            if(securingResult == false)
                             {
                                 MessageBox.Show("Password is incorrect");
                             }
+
+                            //byte[] salt = new byte[16];
+                            //var pbkdf2 = new Rfc2898DeriveBytes(customer_password.ToString(), salt, 10000);
+                            //byte[] hash = pbkdf2.GetBytes(20);
+                            //Array.Copy(hashBytes, 0, salt, 0, 16);
+                            //int ok = 1;
+                            //for (int i = 0; i < 20; i++)
+                            //    if (db_hashBytes[i + 16] != user_hashBytes[i])
+                            //        ok = 0;
+                            //if (ok == 0)
+                            //{
+                            //    MessageBox.Show("Password is incorrect");
+                            //}
+                            //if (customer_password.ToString() != (string)reader["customer_password"])
+                            //{
+                            //    MessageBox.Show("Password is incorrect");
+                            //}
                             else
                             {
                                 customer = CustomerInfo.getSample();
