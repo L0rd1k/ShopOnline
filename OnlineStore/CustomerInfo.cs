@@ -24,7 +24,7 @@ namespace OnlineStore
         public string Customerusername { get; set; }
         public string Customerpassword { get; set; }
         public bool Customergender { get; set; }
-
+        public Image Customerimage { get; set; }
 
     }
 }

@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 using System.Windows.Forms;
 
 namespace OnlineStore
@@ -99,13 +100,19 @@ namespace OnlineStore
         {
             if (CheckValidity())
             {
+                MemoryStream memStream = new MemoryStream();
+                picBox_ProfileImage.Image.Save(memStream, picBox_ProfileImage.Image.RawFormat);
+                byte[] ImageData = memStream.ToArray();
+
                 DataBaseOperations db_operation = DataBaseOperations.getSample();
                 bool result = db_operation.InsertUser(tB_SignUp_Adress.Text,
                                                       tB_SignUp_Email.Text,
                                                       tB_SignUp_Login.Text,
                                                       tB_SignUp_Name.Text,
                                                       tB_SignUp_Password.Text,
-                                                      rB_SignUp_male.Checked);
+                                                      rB_SignUp_male.Checked,
+                                                      ImageData
+                                                      );
 
                 if(result)
                     MessageBox.Show("You was succesfully registrated");
@@ -221,15 +228,30 @@ namespace OnlineStore
                 e.Handled = true;
             }
         }
-
         private void button7_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
-
         private void button6_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void btn_Upload_Image_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                OpenFileDialog openFile = new OpenFileDialog();
+                openFile.Filter = "Choose profile image(*.jpg;*.png;*.gif)|*.jpg;*.png;*.gif";
+                if (openFile.ShowDialog() == DialogResult.OK)
+                {
+                    picBox_ProfileImage.Image = Image.FromFile(openFile.FileName);
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

@@ -12,10 +12,17 @@ namespace OnlineStore
 {
     public partial class MainAppForm : Form
     {
+        CustomerInfo custInfo;
         public MainAppForm()
         {
+            custInfo = CustomerInfo.getSample();
             InitializeComponent();
+        }
+
+        private void MainAppForm_Load(object sender, EventArgs e)
+        {
             sidePanel.Height = btn_MyProfile.Height;
+            pictureBox1.Image = custInfo.Customerimage;
         }
 
         private void btn_MyProfile_Click(object sender, EventArgs e)
@@ -28,6 +35,24 @@ namespace OnlineStore
         {
             sidePanel.Height = btn_ShoppingChart.Height;
             sidePanel.Top = btn_ShoppingChart.Top;
+        }
+
+        private void btn_MyPurchase_Click(object sender, EventArgs e)
+        {
+            sidePanel.Height = btn_MyPurchase.Height;
+            sidePanel.Top = btn_MyPurchase.Top;
+        }
+
+        private void btn_Collection_Click(object sender, EventArgs e)
+        {
+            sidePanel.Height = btn_Collection.Height;
+            sidePanel.Top = btn_Collection.Top;
+        }
+
+        private void btn_Delivery_Click(object sender, EventArgs e)
+        {
+            sidePanel.Height = btn_Delivery.Height;
+            sidePanel.Top = btn_Delivery.Top;
         }
     }
 }

@@ -65,11 +65,16 @@
             this.panel7 = new System.Windows.Forms.Panel();
             this.panel8 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.picBox_ProfileImage = new System.Windows.Forms.PictureBox();
+            this.panel10 = new System.Windows.Forms.Panel();
+            this.btn_Upload_Image = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pB_SignUp_Password)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pB_SignUp_RepPW)).BeginInit();
             this.panel2.SuspendLayout();
@@ -79,20 +84,22 @@
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pB_ShowPW)).BeginInit();
             this.panel3.SuspendLayout();
+            this.panel9.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picBox_ProfileImage)).BeginInit();
+            this.panel10.SuspendLayout();
             this.SuspendLayout();
             // 
             // tB_SignUp_Name
             // 
             resources.ApplyResources(this.tB_SignUp_Name, "tB_SignUp_Name");
             this.tB_SignUp_Name.Name = "tB_SignUp_Name";
-            this.tB_SignUp_Name.UseWaitCursor = true;
             this.tB_SignUp_Name.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tB_SignUp_Name_KeyPress);
             // 
             // tB_SignUp_Adress
             // 
+            this.tB_SignUp_Adress.Cursor = System.Windows.Forms.Cursors.IBeam;
             resources.ApplyResources(this.tB_SignUp_Adress, "tB_SignUp_Adress");
             this.tB_SignUp_Adress.Name = "tB_SignUp_Adress";
-            this.tB_SignUp_Adress.UseWaitCursor = true;
             this.tB_SignUp_Adress.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tB_SignUp_Adress_KeyPress);
             // 
             // tB_SignUp_Email
@@ -126,18 +133,18 @@
             // rB_SignUp_male
             // 
             resources.ApplyResources(this.rB_SignUp_male, "rB_SignUp_male");
+            this.rB_SignUp_male.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.rB_SignUp_male.Name = "rB_SignUp_male";
             this.rB_SignUp_male.TabStop = true;
             this.rB_SignUp_male.UseVisualStyleBackColor = true;
-            this.rB_SignUp_male.UseWaitCursor = true;
             // 
             // rB_SignUp_Female
             // 
             resources.ApplyResources(this.rB_SignUp_Female, "rB_SignUp_Female");
+            this.rB_SignUp_Female.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.rB_SignUp_Female.Name = "rB_SignUp_Female";
             this.rB_SignUp_Female.TabStop = true;
             this.rB_SignUp_Female.UseVisualStyleBackColor = true;
-            this.rB_SignUp_Female.UseWaitCursor = true;
             // 
             // labelName
             // 
@@ -148,14 +155,15 @@
             // label_Address
             // 
             resources.ApplyResources(this.label_Address, "label_Address");
+            this.label_Address.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.label_Address.Name = "label_Address";
-            this.label_Address.UseWaitCursor = true;
             // 
             // label_Email
             // 
             resources.ApplyResources(this.label_Email, "label_Email");
+            this.label_Email.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.label_Email.Name = "label_Email";
-            this.label_Email.UseWaitCursor = true;
+            this.label_Email.UseMnemonic = false;
             // 
             // label_Login
             // 
@@ -178,16 +186,17 @@
             // label4
             // 
             resources.ApplyResources(this.label4, "label4");
+            this.label4.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.label4.Name = "label4";
-            this.label4.UseWaitCursor = true;
+            this.label4.UseMnemonic = false;
             // 
             // linkLabel2
             // 
             resources.ApplyResources(this.linkLabel2, "linkLabel2");
+            this.linkLabel2.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.linkLabel2.LinkColor = System.Drawing.Color.Black;
             this.linkLabel2.Name = "linkLabel2";
             this.linkLabel2.TabStop = true;
-            this.linkLabel2.UseWaitCursor = true;
             this.linkLabel2.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel_SignIn_LinkClicked);
             // 
             // btn_SignUp
@@ -235,9 +244,9 @@
             this.panel2.Controls.Add(this.tB_SignUp_Password);
             this.panel2.Controls.Add(this.tB_SignUp_Login);
             this.panel2.Controls.Add(this.tB_SignUp_Name);
+            this.panel2.Cursor = System.Windows.Forms.Cursors.Arrow;
             resources.ApplyResources(this.panel2, "panel2");
             this.panel2.Name = "panel2";
-            this.panel2.UseWaitCursor = true;
             // 
             // panel6
             // 
@@ -250,6 +259,7 @@
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.panel5.Controls.Add(this.panel9);
             this.panel5.Controls.Add(this.label_Address);
             this.panel5.Controls.Add(this.tB_SignUp_Adress);
             this.panel5.Controls.Add(this.tB_SignUp_Email);
@@ -258,9 +268,9 @@
             this.panel5.Controls.Add(this.label4);
             this.panel5.Controls.Add(this.rB_SignUp_Female);
             this.panel5.Controls.Add(this.rB_SignUp_male);
+            this.panel5.Cursor = System.Windows.Forms.Cursors.Help;
             resources.ApplyResources(this.panel5, "panel5");
             this.panel5.Name = "panel5";
-            this.panel5.UseWaitCursor = true;
             // 
             // panel1
             // 
@@ -372,32 +382,14 @@
             this.panel3.Controls.Add(this.button3);
             this.panel3.Name = "panel3";
             // 
-            // button3
+            // button7
             // 
-            this.button3.BackColor = System.Drawing.Color.Transparent;
-            resources.ApplyResources(this.button3, "button3");
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.ForeColor = System.Drawing.SystemColors.Info;
-            this.button3.Name = "button3";
-            this.button3.UseVisualStyleBackColor = false;
-            // 
-            // button4
-            // 
-            this.button4.BackColor = System.Drawing.Color.Transparent;
-            resources.ApplyResources(this.button4, "button4");
-            this.button4.FlatAppearance.BorderSize = 0;
-            this.button4.ForeColor = System.Drawing.SystemColors.Info;
-            this.button4.Name = "button4";
-            this.button4.UseVisualStyleBackColor = false;
-            // 
-            // button5
-            // 
-            this.button5.BackColor = System.Drawing.Color.Transparent;
-            resources.ApplyResources(this.button5, "button5");
-            this.button5.FlatAppearance.BorderSize = 0;
-            this.button5.ForeColor = System.Drawing.SystemColors.Info;
-            this.button5.Name = "button5";
-            this.button5.UseVisualStyleBackColor = false;
+            this.button7.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.button7, "button7");
+            this.button7.FlatAppearance.BorderSize = 0;
+            this.button7.Name = "button7";
+            this.button7.UseVisualStyleBackColor = false;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // button6
             // 
@@ -408,14 +400,72 @@
             this.button6.UseVisualStyleBackColor = false;
             this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
-            // button7
+            // button5
             // 
-            this.button7.BackColor = System.Drawing.Color.Transparent;
-            resources.ApplyResources(this.button7, "button7");
-            this.button7.FlatAppearance.BorderSize = 0;
-            this.button7.Name = "button7";
-            this.button7.UseVisualStyleBackColor = false;
-            this.button7.Click += new System.EventHandler(this.button7_Click);
+            this.button5.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.button5, "button5");
+            this.button5.FlatAppearance.BorderSize = 0;
+            this.button5.ForeColor = System.Drawing.SystemColors.Info;
+            this.button5.Name = "button5";
+            this.button5.UseVisualStyleBackColor = false;
+            // 
+            // button4
+            // 
+            this.button4.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.button4, "button4");
+            this.button4.FlatAppearance.BorderSize = 0;
+            this.button4.ForeColor = System.Drawing.SystemColors.Info;
+            this.button4.Name = "button4";
+            this.button4.UseVisualStyleBackColor = false;
+            // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.button3, "button3");
+            this.button3.FlatAppearance.BorderSize = 0;
+            this.button3.ForeColor = System.Drawing.SystemColors.Info;
+            this.button3.Name = "button3";
+            this.button3.UseVisualStyleBackColor = false;
+            // 
+            // panel9
+            // 
+            this.panel9.BackColor = System.Drawing.SystemColors.Control;
+            this.panel9.Controls.Add(this.panel10);
+            this.panel9.Controls.Add(this.picBox_ProfileImage);
+            this.panel9.Controls.Add(this.label5);
+            resources.ApplyResources(this.panel9, "panel9");
+            this.panel9.Name = "panel9";
+            // 
+            // label5
+            // 
+            resources.ApplyResources(this.label5, "label5");
+            this.label5.Name = "label5";
+            this.label5.UseWaitCursor = true;
+            // 
+            // picBox_ProfileImage
+            // 
+            this.picBox_ProfileImage.BackColor = System.Drawing.SystemColors.ButtonFace;
+            resources.ApplyResources(this.picBox_ProfileImage, "picBox_ProfileImage");
+            this.picBox_ProfileImage.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.picBox_ProfileImage.Name = "picBox_ProfileImage";
+            this.picBox_ProfileImage.TabStop = false;
+            // 
+            // panel10
+            // 
+            this.panel10.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.panel10.Controls.Add(this.btn_Upload_Image);
+            resources.ApplyResources(this.panel10, "panel10");
+            this.panel10.Name = "panel10";
+            this.panel10.UseWaitCursor = true;
+            // 
+            // btn_Upload_Image
+            // 
+            this.btn_Upload_Image.Cursor = System.Windows.Forms.Cursors.WaitCursor;
+            resources.ApplyResources(this.btn_Upload_Image, "btn_Upload_Image");
+            this.btn_Upload_Image.Name = "btn_Upload_Image";
+            this.btn_Upload_Image.UseVisualStyleBackColor = true;
+            this.btn_Upload_Image.UseWaitCursor = true;
+            this.btn_Upload_Image.Click += new System.EventHandler(this.btn_Upload_Image_Click);
             // 
             // LoginForm
             // 
@@ -429,6 +479,7 @@
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
+            this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "LoginForm";
             this.ShowIcon = false;
@@ -445,6 +496,10 @@
             this.panel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pB_ShowPW)).EndInit();
             this.panel3.ResumeLayout(false);
+            this.panel9.ResumeLayout(false);
+            this.panel9.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picBox_ProfileImage)).EndInit();
+            this.panel10.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -492,6 +547,11 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Panel panel9;
+        private System.Windows.Forms.PictureBox picBox_ProfileImage;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Panel panel10;
+        private System.Windows.Forms.Button btn_Upload_Image;
     }
 }
 

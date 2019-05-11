@@ -3,6 +3,8 @@ using System.Data.SqlClient;
 using MySql.Data.MySqlClient;
 using System.Windows.Forms;
 using System.Security.Cryptography;
+using System.IO;
+using System.Drawing;
 
 namespace OnlineStore
 {
@@ -33,7 +35,7 @@ namespace OnlineStore
             return "SERVER ="+ sql_server + "; DATABASE=" + sql_database + ";USER=" + sql_login + ";PASSWORD=" + sql_password;
         }
 
-        public bool InsertUser(string customer_address,string customer_email,string customer_login,string customer_name,string customer_password, bool customer_gender)
+        public bool InsertUser(string customer_address,string customer_email,string customer_login,string customer_name,string customer_password, bool customer_gender, byte[] customer_image)
         {
             string connectionString = GetConnectionString();
             SecurePassword sc_pw = new SecurePassword(customer_password);
@@ -44,7 +46,7 @@ namespace OnlineStore
                 using (sql_connection = new MySqlConnection(connectionString))
                 {
                     sql_connection.Open();
-                    using (sql_command = new MySqlCommand("INSERT INTO customer(customer_name,customer_adress,customer_email,customer_username,customer_password,customer_gender) VALUES(@Name, @Address, @Email, @Username, @Password, @Gender)", sql_connection))
+                    using (sql_command = new MySqlCommand("INSERT INTO customer(customer_name,customer_adress,customer_email,customer_username,customer_password,customer_gender,customer_image) VALUES(@Name, @Address, @Email, @Username, @Password, @Gender, @Image)", sql_connection))
                     {
                         sql_command.Parameters.AddWithValue("Name", customer_name);
                         sql_command.Parameters.AddWithValue("Address", customer_address);
@@ -52,6 +54,7 @@ namespace OnlineStore
                         sql_command.Parameters.AddWithValue("Username", customer_login);
                         sql_command.Parameters.AddWithValue("Password", passwordBytes);
                         sql_command.Parameters.AddWithValue("Gender", customer_gender);
+                        sql_command.Parameters.AddWithValue("Image", customer_image);
                     }
                     sql_command.ExecuteNonQuery();
                 }    
@@ -99,6 +102,11 @@ namespace OnlineStore
                                 customer.Customeremail = (string)reader["customer_email"];
                                 customer.Customerusername = (string)reader["customer_username"];
                                 customer.Customerpassword = (string)reader["customer_password"];
+
+                                using(MemoryStream ms = new MemoryStream((byte[])reader["customer_image"]))
+                                {
+                                    customer.Customerimage = Image.FromStream(ms);
+                                }
                                 int value = reader.GetByte("customer_gender");
                                 if (value == 1)
                                     customer.Customergender = true;
