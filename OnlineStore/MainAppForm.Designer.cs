@@ -28,18 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainAppForm));
             this.panel1 = new System.Windows.Forms.Panel();
             this.sidePanel = new System.Windows.Forms.Panel();
             this.btn_Delivery = new System.Windows.Forms.Button();
             this.btn_Collection = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btn_MyPurchase = new System.Windows.Forms.Button();
             this.btn_ShoppingChart = new System.Windows.Forms.Button();
             this.btn_MyProfile = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
+            this.btb_Exit = new System.Windows.Forms.Button();
+            this.btn_Smooth = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -55,7 +58,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(156, 411);
+            this.panel1.Size = new System.Drawing.Size(156, 410);
             this.panel1.TabIndex = 0;
             // 
             // sidePanel
@@ -91,6 +94,15 @@
             this.btn_Collection.Text = "Collection";
             this.btn_Collection.UseVisualStyleBackColor = true;
             this.btn_Collection.Click += new System.EventHandler(this.btn_Collection_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(22, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(113, 102);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
             // btn_MyPurchase
             // 
@@ -131,38 +143,52 @@
             this.btn_MyProfile.UseVisualStyleBackColor = true;
             this.btn_MyProfile.Click += new System.EventHandler(this.btn_MyProfile_Click);
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Location = new System.Drawing.Point(22, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(113, 102);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.panel2.Controls.Add(this.btb_Exit);
+            this.panel2.Controls.Add(this.btn_Smooth);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(156, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(647, 10);
+            this.panel2.Size = new System.Drawing.Size(644, 23);
             this.panel2.TabIndex = 1;
             // 
-            // panel3
+            // btb_Exit
             // 
-            this.panel3.BackColor = System.Drawing.SystemColors.ButtonShadow;
-            this.panel3.Location = new System.Drawing.Point(750, 0);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(53, 62);
-            this.panel3.TabIndex = 2;
+            this.btb_Exit.BackColor = System.Drawing.Color.Transparent;
+            this.btb_Exit.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btb_Exit.BackgroundImage")));
+            this.btb_Exit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btb_Exit.FlatAppearance.BorderSize = 0;
+            this.btb_Exit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btb_Exit.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btb_Exit.Location = new System.Drawing.Point(626, 3);
+            this.btb_Exit.Name = "btb_Exit";
+            this.btb_Exit.Size = new System.Drawing.Size(15, 15);
+            this.btb_Exit.TabIndex = 8;
+            this.btb_Exit.UseVisualStyleBackColor = false;
+            this.btb_Exit.Click += new System.EventHandler(this.btb_Exit_Click);
+            // 
+            // btn_Smooth
+            // 
+            this.btn_Smooth.BackColor = System.Drawing.Color.Transparent;
+            this.btn_Smooth.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_Smooth.BackgroundImage")));
+            this.btn_Smooth.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_Smooth.FlatAppearance.BorderSize = 0;
+            this.btn_Smooth.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Smooth.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btn_Smooth.Location = new System.Drawing.Point(594, 3);
+            this.btn_Smooth.Name = "btn_Smooth";
+            this.btn_Smooth.Size = new System.Drawing.Size(15, 15);
+            this.btn_Smooth.TabIndex = 7;
+            this.btn_Smooth.UseVisualStyleBackColor = false;
+            this.btn_Smooth.Click += new System.EventHandler(this.btn_Smooth_Click);
             // 
             // MainAppForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(803, 411);
-            this.Controls.Add(this.panel3);
+            this.ClientSize = new System.Drawing.Size(800, 410);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -172,6 +198,7 @@
             this.Load += new System.EventHandler(this.MainAppForm_Load);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -187,6 +214,7 @@
         private System.Windows.Forms.Button btn_MyProfile;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Button btb_Exit;
+        private System.Windows.Forms.Button btn_Smooth;
     }
 }

@@ -27,8 +27,11 @@ namespace OnlineStore
 
         private void btn_MyProfile_Click(object sender, EventArgs e)
         {
+            this.Hide();
             sidePanel.Height = btn_MyProfile.Height;
             sidePanel.Top = btn_MyProfile.Top;
+            CustomerProfile custProf = new CustomerProfile();
+            custProf.ShowDialog();
         }
 
         private void btn_ShoppingChart_Click(object sender, EventArgs e)
@@ -53,6 +56,16 @@ namespace OnlineStore
         {
             sidePanel.Height = btn_Delivery.Height;
             sidePanel.Top = btn_Delivery.Top;
+        }
+
+        private void btb_Exit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void btn_Smooth_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
         }
     }
 }

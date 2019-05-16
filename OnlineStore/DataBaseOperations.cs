@@ -130,5 +130,36 @@ namespace OnlineStore
             return customer;
         }
 
+        public bool InsertLogger(int action)
+        {
+            CustomerInfo custInfo = new CustomerInfo();
+            custInfo = CustomerInfo.getSample();
+            string connectionString = GetConnectionString();
+            try
+            {
+                using (sql_connection = new MySqlConnection(connectionString))
+                {
+                    sql_connection.Open();
+                    using (sql_command = new MySqlCommand("INSERT INTO shoponline.logger(customer_id, logger_datatime, logger_action) VALUES(@ID,@DATE,@ACTION)", sql_connection))
+                    {
+                        sql_command.Parameters.AddWithValue("ID", custInfo.Customerid);
+                        sql_command.Parameters.AddWithValue("DATE", DateTime.Now.ToString("yyyy-MM-dd HH:mm::ss"));
+                        sql_command.Parameters.AddWithValue("ACTION", "action done");
+                    }
+                    sql_command.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            return true;
+        }
+
+        private static string Show_Message(string message)
+        {
+            return message;
+        }
+
     }
 }

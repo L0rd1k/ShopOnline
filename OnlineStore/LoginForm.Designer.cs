@@ -44,24 +44,27 @@
             this.label_Password = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.linkLabel2 = new System.Windows.Forms.LinkLabel();
             this.btn_SignUp = new System.Windows.Forms.Button();
             this.pB_SignUp_Password = new System.Windows.Forms.PictureBox();
             this.pB_SignUp_RepPW = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.panel10 = new System.Windows.Forms.Panel();
+            this.btn_Upload_Image = new System.Windows.Forms.Button();
+            this.picBox_ProfileImage = new System.Windows.Forms.PictureBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.btn_SignIn = new System.Windows.Forms.Button();
             this.pB_ShowPW = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.txtBox_Password = new System.Windows.Forms.TextBox();
             this.txtBox_Login = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btn_SignInPanel = new System.Windows.Forms.Button();
+            this.btn_SignUpPanel = new System.Windows.Forms.Button();
             this.panel7 = new System.Windows.Forms.Panel();
             this.panel8 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -70,23 +73,18 @@
             this.button5 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.panel9 = new System.Windows.Forms.Panel();
-            this.label5 = new System.Windows.Forms.Label();
-            this.picBox_ProfileImage = new System.Windows.Forms.PictureBox();
-            this.panel10 = new System.Windows.Forms.Panel();
-            this.btn_Upload_Image = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pB_SignUp_Password)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pB_SignUp_RepPW)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel5.SuspendLayout();
+            this.panel9.SuspendLayout();
+            this.panel10.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picBox_ProfileImage)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pB_ShowPW)).BeginInit();
             this.panel3.SuspendLayout();
-            this.panel9.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picBox_ProfileImage)).BeginInit();
-            this.panel10.SuspendLayout();
             this.SuspendLayout();
             // 
             // tB_SignUp_Name
@@ -190,15 +188,6 @@
             this.label4.Name = "label4";
             this.label4.UseMnemonic = false;
             // 
-            // linkLabel2
-            // 
-            resources.ApplyResources(this.linkLabel2, "linkLabel2");
-            this.linkLabel2.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.linkLabel2.LinkColor = System.Drawing.Color.Black;
-            this.linkLabel2.Name = "linkLabel2";
-            this.linkLabel2.TabStop = true;
-            this.linkLabel2.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel_SignIn_LinkClicked);
-            // 
             // btn_SignUp
             // 
             resources.ApplyResources(this.btn_SignUp, "btn_SignUp");
@@ -264,13 +253,52 @@
             this.panel5.Controls.Add(this.tB_SignUp_Adress);
             this.panel5.Controls.Add(this.tB_SignUp_Email);
             this.panel5.Controls.Add(this.label_Email);
-            this.panel5.Controls.Add(this.linkLabel2);
             this.panel5.Controls.Add(this.label4);
             this.panel5.Controls.Add(this.rB_SignUp_Female);
             this.panel5.Controls.Add(this.rB_SignUp_male);
             this.panel5.Cursor = System.Windows.Forms.Cursors.Help;
             resources.ApplyResources(this.panel5, "panel5");
             this.panel5.Name = "panel5";
+            // 
+            // panel9
+            // 
+            this.panel9.BackColor = System.Drawing.SystemColors.Control;
+            this.panel9.Controls.Add(this.panel10);
+            this.panel9.Controls.Add(this.picBox_ProfileImage);
+            this.panel9.Controls.Add(this.label5);
+            resources.ApplyResources(this.panel9, "panel9");
+            this.panel9.Name = "panel9";
+            // 
+            // panel10
+            // 
+            this.panel10.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.panel10.Controls.Add(this.btn_Upload_Image);
+            resources.ApplyResources(this.panel10, "panel10");
+            this.panel10.Name = "panel10";
+            this.panel10.UseWaitCursor = true;
+            // 
+            // btn_Upload_Image
+            // 
+            this.btn_Upload_Image.Cursor = System.Windows.Forms.Cursors.WaitCursor;
+            resources.ApplyResources(this.btn_Upload_Image, "btn_Upload_Image");
+            this.btn_Upload_Image.Name = "btn_Upload_Image";
+            this.btn_Upload_Image.UseVisualStyleBackColor = true;
+            this.btn_Upload_Image.UseWaitCursor = true;
+            this.btn_Upload_Image.Click += new System.EventHandler(this.btn_Upload_Image_Click);
+            // 
+            // picBox_ProfileImage
+            // 
+            this.picBox_ProfileImage.BackColor = System.Drawing.SystemColors.ButtonFace;
+            resources.ApplyResources(this.picBox_ProfileImage, "picBox_ProfileImage");
+            this.picBox_ProfileImage.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.picBox_ProfileImage.Name = "picBox_ProfileImage";
+            this.picBox_ProfileImage.TabStop = false;
+            // 
+            // label5
+            // 
+            resources.ApplyResources(this.label5, "label5");
+            this.label5.Name = "label5";
+            this.label5.UseWaitCursor = true;
             // 
             // panel1
             // 
@@ -279,7 +307,6 @@
             this.panel1.Controls.Add(this.pB_ShowPW);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.linkLabel1);
             this.panel1.Controls.Add(this.txtBox_Password);
             this.panel1.Controls.Add(this.txtBox_Login);
             this.panel1.ForeColor = System.Drawing.SystemColors.ControlText;
@@ -322,15 +349,6 @@
             resources.ApplyResources(this.label1, "label1");
             this.label1.Name = "label1";
             // 
-            // linkLabel1
-            // 
-            this.linkLabel1.ActiveLinkColor = System.Drawing.Color.Red;
-            resources.ApplyResources(this.linkLabel1, "linkLabel1");
-            this.linkLabel1.LinkColor = System.Drawing.Color.Black;
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel_SignUp_LinkClicked);
-            // 
             // txtBox_Password
             // 
             this.txtBox_Password.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -345,19 +363,21 @@
             this.txtBox_Login.Name = "txtBox_Login";
             this.txtBox_Login.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBox_Login_KeyPress);
             // 
-            // button1
+            // btn_SignInPanel
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            resources.ApplyResources(this.button1, "button1");
-            this.button1.Name = "button1";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btn_SignInPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            resources.ApplyResources(this.btn_SignInPanel, "btn_SignInPanel");
+            this.btn_SignInPanel.Name = "btn_SignInPanel";
+            this.btn_SignInPanel.UseVisualStyleBackColor = false;
+            this.btn_SignInPanel.Click += new System.EventHandler(this.btn_SignInPanel_Click);
             // 
-            // button2
+            // btn_SignUpPanel
             // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            resources.ApplyResources(this.button2, "button2");
-            this.button2.Name = "button2";
-            this.button2.UseVisualStyleBackColor = false;
+            this.btn_SignUpPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            resources.ApplyResources(this.btn_SignUpPanel, "btn_SignUpPanel");
+            this.btn_SignUpPanel.Name = "btn_SignUpPanel";
+            this.btn_SignUpPanel.UseVisualStyleBackColor = false;
+            this.btn_SignUpPanel.Click += new System.EventHandler(this.btn_SignUpPanel_Click);
             // 
             // panel7
             // 
@@ -427,46 +447,6 @@
             this.button3.Name = "button3";
             this.button3.UseVisualStyleBackColor = false;
             // 
-            // panel9
-            // 
-            this.panel9.BackColor = System.Drawing.SystemColors.Control;
-            this.panel9.Controls.Add(this.panel10);
-            this.panel9.Controls.Add(this.picBox_ProfileImage);
-            this.panel9.Controls.Add(this.label5);
-            resources.ApplyResources(this.panel9, "panel9");
-            this.panel9.Name = "panel9";
-            // 
-            // label5
-            // 
-            resources.ApplyResources(this.label5, "label5");
-            this.label5.Name = "label5";
-            this.label5.UseWaitCursor = true;
-            // 
-            // picBox_ProfileImage
-            // 
-            this.picBox_ProfileImage.BackColor = System.Drawing.SystemColors.ButtonFace;
-            resources.ApplyResources(this.picBox_ProfileImage, "picBox_ProfileImage");
-            this.picBox_ProfileImage.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.picBox_ProfileImage.Name = "picBox_ProfileImage";
-            this.picBox_ProfileImage.TabStop = false;
-            // 
-            // panel10
-            // 
-            this.panel10.BackColor = System.Drawing.SystemColors.ButtonShadow;
-            this.panel10.Controls.Add(this.btn_Upload_Image);
-            resources.ApplyResources(this.panel10, "panel10");
-            this.panel10.Name = "panel10";
-            this.panel10.UseWaitCursor = true;
-            // 
-            // btn_Upload_Image
-            // 
-            this.btn_Upload_Image.Cursor = System.Windows.Forms.Cursors.WaitCursor;
-            resources.ApplyResources(this.btn_Upload_Image, "btn_Upload_Image");
-            this.btn_Upload_Image.Name = "btn_Upload_Image";
-            this.btn_Upload_Image.UseVisualStyleBackColor = true;
-            this.btn_Upload_Image.UseWaitCursor = true;
-            this.btn_Upload_Image.Click += new System.EventHandler(this.btn_Upload_Image_Click);
-            // 
             // LoginForm
             // 
             resources.ApplyResources(this, "$this");
@@ -474,8 +454,8 @@
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.Controls.Add(this.panel8);
             this.Controls.Add(this.panel7);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btn_SignUpPanel);
+            this.Controls.Add(this.btn_SignInPanel);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -491,15 +471,15 @@
             this.panel6.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
+            this.panel9.ResumeLayout(false);
+            this.panel9.PerformLayout();
+            this.panel10.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.picBox_ProfileImage)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pB_ShowPW)).EndInit();
             this.panel3.ResumeLayout(false);
-            this.panel9.ResumeLayout(false);
-            this.panel9.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picBox_ProfileImage)).EndInit();
-            this.panel10.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -521,7 +501,6 @@
         private System.Windows.Forms.Label label_Password;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.LinkLabel linkLabel2;
         private System.Windows.Forms.Button btn_SignUp;
         private System.Windows.Forms.PictureBox pB_SignUp_Password;
         private System.Windows.Forms.PictureBox pB_SignUp_RepPW;
@@ -530,12 +509,11 @@
         private System.Windows.Forms.PictureBox pB_ShowPW;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.Button btn_SignIn;
         private System.Windows.Forms.TextBox txtBox_Password;
         private System.Windows.Forms.TextBox txtBox_Login;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btn_SignInPanel;
+        private System.Windows.Forms.Button btn_SignUpPanel;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel6;

@@ -53,6 +53,8 @@ namespace OnlineStore
                 CustomerInfo customerInfo = db_operation.SelectUser(txtBox_Login.Text, txtBox_Password.Text);
                 if (customerInfo != null)
                 {
+                    MessageBox.Show(customerInfo.Customerid.ToString());
+                    db_operation.InsertLogger(0);
                     this.Hide();
                     MessageBox.Show("You have entered!!!");
                     MessageBox.Show("" + customerInfo.Customeraddress);
@@ -64,20 +66,7 @@ namespace OnlineStore
                 }
             }
         }
-        private void linkLabel_SignUp_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            panel1.Visible = false;
-            panel2.Visible = true;
 
-            panel2.BringToFront();
-        }
-        private void linkLabel_SignIn_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            panel1.Visible = true;
-            panel2.Visible = false;
-
-            panel1.BringToFront();
-        }
         private void pB_ShowPW_MouseDown(object sender, MouseEventArgs e)
         {
             txtBox_Password.PasswordChar = '\0';
@@ -86,7 +75,6 @@ namespace OnlineStore
         {
             txtBox_Password.PasswordChar = 'X';
         }
-
         private void txtBox_Login_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (char.IsWhiteSpace(e.KeyChar) || System.Text.Encoding.UTF8.GetByteCount(new char[] { e.KeyChar }) > 1)
@@ -252,6 +240,21 @@ namespace OnlineStore
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void btn_SignInPanel_Click(object sender, EventArgs e)
+        {
+            panel1.Visible = true;
+            panel2.Visible = false;
+
+            panel1.BringToFront();
+        }
+
+        private void btn_SignUpPanel_Click(object sender, EventArgs e)
+        {
+            panel1.Visible = false;
+            panel2.Visible = true;
+            panel2.BringToFront();
         }
     }
 }
